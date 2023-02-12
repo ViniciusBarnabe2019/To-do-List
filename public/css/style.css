@@ -1,0 +1,413 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(137 143 156);
+}
+
+main {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(24, 64, 197);
+    box-shadow: 0 0 5px 3px black;
+}
+
+.div_search {
+    margin: 0px;
+	padding: 0px;
+	border-radius: 0.25em;
+	background-color: #e9ecef;
+}
+
+.span_pesquisar {
+    cursor: pointer;
+}
+
+.form-control:focus {
+	border-color: black;
+	box-shadow: 0 0 0 0.1em black;
+} 
+
+.icon_search, .icon_filter {
+    line-height: 1.5em;
+} 
+
+.icon_filter {
+    font-size: 1.75em;
+    color: #e9ecef;
+}
+
+.icon_filter:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.colu1, .colu2 {
+    float: left;
+    margin: 0px;
+    background-color: transparent;
+    height: 50px;
+}
+
+.colu1 {
+    padding: 6px 5px 5px 15px;
+    width: 80%;
+}
+
+.colu2 {
+    padding: 5px;
+    width: 20%;
+    text-align: center;
+}
+
+/* Menu Drop */
+#listaBar {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	background-color: #e9ecef;
+	margin-top: 55px;
+	text-align: left;
+	padding: 8px 15px;
+    display: none;
+    z-index: 90;
+}
+
+#listaBar li {
+	text-decoration: none;
+    list-style-type: none;
+    line-height: 3em;
+	margin-right: 15px;
+	height: 50px;
+	border-radius: 0.25em 0.25em;
+    color: black;
+}
+
+.li_date {
+    height: auto;
+    overflow: hidden;
+}
+
+header input[type='checkbox']{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+header input[type='checkbox'] {
+    transform: scale(1.5);
+}
+
+header input[type='date']:focus {
+    outline: 2px solid rgb(24, 64, 197) !important;
+}
+
+#dataTarefa {
+    display: none;
+    float: right;
+    height: 40px;
+    margin-top: 2px !important;
+    margin-right: 2px !important;
+}
+
+#btnFiltrar { 
+    float: right;
+    margin-top: 5px;
+    background-color: rgb(24, 64, 197) !important;
+}
+/*End Menu Drop */
+
+.div_nova_tarefa {
+    position: relative;
+    width: 465px;
+    height: 40px;
+    margin: 12px 15px 12px 15px;
+    padding: 0px;
+    background-color: #e9ecef;
+    box-shadow: 2px 3px 5px black;
+    border-radius: 0.25em 0.25em;
+}
+
+.div_nova_tarefa h2 {
+    width: 85%;
+    height: 40px;
+    padding-left: 10px;
+    line-height: 1.5em;
+    font-weight: bold;
+    float: left;
+}
+
+.div_nova_tarefa span {
+    cursor: pointer;
+    width: 15%;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 1.6em;
+    float: left;
+    border-left: 1px solid gray;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.div_nova_tarefa span:hover {
+    background-color: rgb(24, 64, 197);
+    color: #e9ecef;
+}
+
+/* Modals */
+dialog, .dialogTarefa {
+	position: absolute;
+	margin: 0 auto;
+    width: 475px;
+	top: 60px;
+	border-radius: 0.25em;
+	border: none;
+	box-shadow: 1px 2px 3px black;
+}
+
+dialog h2 {
+	text-shadow: 1px 1px 2px black;
+	color: #fff;
+	width: 100%;
+	margin: 0px;
+	padding: 5px 15px;
+	text-align: left;
+	background-color: rgb(24, 64, 197);
+}
+
+.detalheTitulo{
+    float: left;
+    text-shadow: 1px 1px 2px black;
+    color: #fff;
+	width: 90%;
+	margin: 0px;
+	padding: 5px 15px;
+    background-color: rgb(24, 64, 197);
+}
+
+.closeTarefa{
+    float: left;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+	width: 10%;
+    padding: 5px 15px;
+    background-color: rgb(24, 64, 197);
+}
+
+.body_tarefa, .footer_btns {
+    overflow: hidden;
+    width: 100%;
+    padding: 5px 15px;
+    background-color: transparent;
+}
+
+.footer_btns {
+    margin-bottom: 5px;
+}
+
+.body_tarefa h3{
+    width: 100%;
+}
+
+.header_tarefa {
+    overflow: hidden;
+    width: 100%;
+    padding: 5px 15px;
+    color: black;
+    background-color: transparent;
+}
+
+.data_tarefa {
+    float: right;
+    padding: 5px;
+}
+
+.status_tarefa {
+    float: left;
+    padding: 5px;
+}
+
+#textTarefa{
+    overflow: auto;
+}
+
+.btn_footer {
+    float: left;
+    margin-right: 5px;
+    border: none; 
+    color: white; 
+    padding: 8px; 
+    font-size: 15px; 
+    cursor: pointer; 
+    box-shadow: 1px 1px 3px black;
+}
+
+.btn_footer:focus, .btn_footer:active, .btn_footer:visited {
+    box-shadow: 0 0 0 0.1em black !important;
+    outline-color: black !important;
+}
+
+.btn_excluir_tarefa {
+    background-color: rgb(180, 12, 20); 
+}
+
+.btn_editar_tarefa, .btn_cancel_update {
+    background-color: rgb(40, 39, 39); 
+}
+
+.btn_concluir_tarefa, .btn_update_tarefa {
+    background-color: rgb(25, 77, 234); 
+}
+
+.form_novaTarefa {
+    padding: 15px;
+}
+
+.btn_cancelar, .btn_criar {
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+dialog p {
+	padding-top: 10px;
+    padding-left: 15px;
+	font-weight: bold;
+	text-align: left;
+    width: 100%;
+}
+
+dialog .btn_close {
+	float: right;
+	margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.form-text {
+    display: none;
+    color:red !important;
+    font-weight: bold;
+}
+
+dialog::backdrop{
+  background-color: rgba(16, 17, 17, 0.7);
+}
+
+.btn_cancelar_exclusao, .btn_excluir, .btn_atualizar, .btn_concluir {
+    float: right;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.btn_update_tarefa, .btn_cancel_update, .btn_atualizar, .btn_excluir, .btn_concluir, #msgDescricaoTarefa, #msgTituloTarefa, #msgDataFiltro {
+    display: none;
+}
+/* End Modals */
+
+.secao_tarefas {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0px 15px 15px 15px;
+    margin: 0px;
+    background: transparent;
+}
+
+.secao_tarefas:first-child {
+    margin-top: 0px;
+}
+
+.asideTarefa, .aside_msg {
+    margin-top: 15px;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: #e9ecef;
+    box-shadow: 2px 3px 5px black;
+    border-radius: 0.25em 0.25em;
+}
+
+.aside_msg {
+    cursor: auto;
+    overflow: auto;
+    padding: 10px 10px;
+    background: #e9ecef;
+}
+
+.asideTarefa:hover {
+    background-color: #d1d2d3;
+}
+
+.aside_msg div {
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+    height: 50px;
+    float: left;
+}
+
+.aside_msg i{
+    font-size: 3em;
+    color: black;
+}
+
+.aside_msg p {
+    padding: 0px;
+    margin: 0px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-indent: 15px;
+    line-height: 2em;
+    color: black;
+    float: left;
+}
+
+.div_status {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background: transparent;
+}
+
+.div_data {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background: transparent;
+    font-weight: bold;
+}
+
+.span_status {
+    position: relative;
+    width: 35%;
+    height: 20px;
+    padding: 5px;
+    color: black;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 0.25em 0.25em;
+}
+
+.titulo_tarefa {
+    padding-left: 12px;
+    font-weight: bold;
+}

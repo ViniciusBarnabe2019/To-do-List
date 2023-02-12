@@ -1,0 +1,25 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "Lista de Tarefas em Electron JS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "ToDoList",
+    "electron",
+    "lista",
+    "tarefas"
+  ],
+  "author": "Marcos Vinícius Barnabé",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^22.2.1"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "uuid": "^9.0.0"
+  }
+}
