@@ -1,2 +1,5 @@
 # Ignore a pasta node_modules
 node_modules
+
+# Ignore a pasta Dist
+dist
