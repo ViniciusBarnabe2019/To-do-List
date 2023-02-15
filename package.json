@@ -1,10 +1,12 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "Lista de Tarefas em Electron JS",
+  "description": "Lista de Tarefas by Terabyte Center",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder — dir",
+    "dist": "electron-builder"
   },
   "keywords": [
     "ToDoList",
@@ -14,8 +16,14 @@
   ],
   "author": "Marcos Vinícius Barnabé",
   "license": "MIT",
+  "build": {
+    "asar": "true",
+    "productName": "Lista de Tarefas",
+    "icon": "images/icone.png"
+  },
   "devDependencies": {
-    "electron": "^22.2.1"
+    "electron": "^22.2.1",
+    "electron-builder": "^23.6.0"
   },
   "dependencies": {
     "fs": "^0.0.1-security",
