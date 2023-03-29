@@ -1,9 +1,0 @@
-#Title Primeira Tarefa
-
-#Descrição Essa é a sua primeira Tarefa!
-
-Me edite ou exclua caso queira começar do 0.
-
-#Status Não Concluído
-
-#Data 12/02/2023

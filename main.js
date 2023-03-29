@@ -26,7 +26,7 @@ app.on('ready', ()=> {
         }
     }) 
     janela.setMenu(null) //Remove Menu Horizontal
-    janela.setIcon(path.join(app.getAppPath(), 'images', 'icone.png')) //Seta ícone
+    janela.setIcon(path.join(__dirname, 'images', 'icone.png')) //Seta ícone
     janela.loadFile('./public/index.html')  //Carrega Página pra Janela
 })
 
@@ -34,7 +34,7 @@ app.on('ready', ()=> {
 ipcMain.on('fs', (event, obj) => {
     //Cria e Escreve no Arquivo da Tarefa
     if(obj.situacao == "create"){
-        var createStream = fs.createWriteStream(path.join(app.getAppPath(), "tarefas", uuid.v4() + ".txt")) //Cria Arquivo
+        var createStream = fs.createWriteStream(path.join(app.getPath('userData'), "tarefas", uuid.v4() + ".txt")) //Cria Arquivo
         createStream.write("#Title " + obj.titulo + "\n" + "\n") //Insere o Título da Tarefa
         createStream.write("#Descrição " + obj.descricao + "\n" + "\n") //Insere a Descrição da Tarefa
         createStream.write("#Status " + obj.status + "\n" + "\n") //Insere o Status da Tarefa
@@ -46,9 +46,9 @@ ipcMain.on('fs', (event, obj) => {
     else if(obj.situacao == "search"){
         if(!obj.filter){
             var qtdTasks = 0
-            fs.readdirSync(path.join(app.getAppPath(), "tarefas")).forEach(arquivo => {
+            fs.readdirSync(path.join(app.getPath('userData'), "tarefas")).forEach(arquivo => {
                 //Abre e Lê Arquivo na Codificação UTF-8
-                var dados = fs.readFileSync(path.join(app.getAppPath(), "tarefas", arquivo), {encoding:'utf8', flag:'r'})
+                var dados = fs.readFileSync(path.join(app.getPath('userData'), "tarefas", arquivo), {encoding:'utf8', flag:'r'})
                 var nome_arquivo = arquivo.split(".")            
                 var arrayStrings = dados.split("#")
                 var arrayTitulo = arrayStrings[1].split("Title")
@@ -66,9 +66,9 @@ ipcMain.on('fs', (event, obj) => {
         }
         else {
             var qtdTasks = 0
-            fs.readdirSync(path.join(app.getAppPath(), "tarefas")).forEach(arquivo => {
+            fs.readdirSync(path.join(app.getPath('userData'), "tarefas")).forEach(arquivo => {
                 //Abre e Lê Arquivo na Codificação UTF-8
-                var dados = fs.readFileSync(path.join(app.getAppPath(), "tarefas", arquivo), {encoding:'utf8', flag:'r'})
+                var dados = fs.readFileSync(path.join(app.getPath('userData'), "tarefas", arquivo), {encoding:'utf8', flag:'r'})
                 var nome_arquivo = arquivo.split(".")            
                 var arrayStrings = dados.split("#")
                 var arrayStatus = arrayStrings[3].split("Status")  
@@ -128,9 +128,9 @@ ipcMain.on('fs', (event, obj) => {
     }
     else if(obj.situacao == "read"){ 
         var qtdTasks = 0
-        fs.readdirSync(path.join(app.getAppPath(), "tarefas")).forEach(arquivo => {
+        fs.readdirSync(path.join(app.getPath('userData'), "tarefas")).forEach(arquivo => {
             //Abre e Lê Arquivo na Codificação UTF-8
-            var dados = fs.readFileSync(path.join(app.getAppPath(), "tarefas", arquivo), {encoding:'utf8', flag:'r'})
+            var dados = fs.readFileSync(path.join(app.getPath('userData'), "tarefas", arquivo), {encoding:'utf8', flag:'r'})
             var nome_arquivo = arquivo.split(".")          
             qtdTasks++
             respondeConsulta("consulta", dados, nome_arquivo[0])
@@ -140,7 +140,7 @@ ipcMain.on('fs', (event, obj) => {
         }     
     }
     else if(obj.situacao == "single"){
-        var dados = fs.readFileSync(path.join(app.getAppPath(), "tarefas", obj.file_id + ".txt"), {encoding:'utf8', flag:'r'})
+        var dados = fs.readFileSync(path.join(app.getPath('userData'), "tarefas", obj.file_id + ".txt"), {encoding:'utf8', flag:'r'})
         if(dados == ""){
             respondeSemTarefa()
         }    
@@ -151,19 +151,19 @@ ipcMain.on('fs', (event, obj) => {
     else if(obj.situacao == "update"){
         var conteudo = montaConteudo(obj.titulo, obj.descricao, obj.status, obj.data)
 
-        fs.writeFile(path.join(app.getAppPath(), "tarefas", obj.arquivo + ".txt"), conteudo, (erro) => {
+        fs.writeFile(path.join(app.getPath('userData'), "tarefas", obj.arquivo + ".txt"), conteudo, (erro) => {
                 enviaMsg("update", "Tarefa Atualizada Com Sucesso!")
         })
     }
     else if(obj.situacao == "finish"){
         var conteudo = montaConteudo(obj.titulo, obj.descricao, obj.status, obj.data)
         
-        fs.writeFile(path.join(app.getAppPath(), "tarefas", obj.file_id + ".txt"), conteudo, (erro) => {
+        fs.writeFile(path.join(app.getPath('userData'), "tarefas", obj.file_id + ".txt"), conteudo, (erro) => {
                 enviaMsg("finish", "Tarefa Concluída Com Sucesso!") 
         })
     }
     else if(obj.situacao == "delete"){
-        fs.unlink(path.join(app.getAppPath(), "tarefas", obj.file + ".txt"), (erro) => {
+        fs.unlink(path.join(app.getPath('userData'), "tarefas", obj.file + ".txt"), (erro) => {
                 enviaMsg("delete", "Tarefa Deletada Com Sucesso!") 
         })
     }
